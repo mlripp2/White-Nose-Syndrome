@@ -1,1 +1,9 @@
-/*This will be the style sheet of the WNS map*/
+#map-container{
+	width: 500px;
+	margin-top: 20px;
+	margin-left:403px;
+	position:absolute;
+	float: right;
+	clear:both;
+	color:#3B3B3B;
+}
