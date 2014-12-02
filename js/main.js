@@ -1,5 +1,5 @@
 window.onload =initialize();
-
+//Kelly's Edits!
 function initialize(){
 	setMap();
 };
