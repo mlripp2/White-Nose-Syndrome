@@ -26,8 +26,8 @@ function setMap(){
 
 function callback (WNS_County, NorthAmerica)
 
-	var county = map.selectAll("county") //create SVG path element
-        .data(topojson.feature(WNS_County, WNS_County.objects.collection)
+	var county = map.selectAll(".county") //create SVG path element
+        .data(topojson.feature(WNS_County, WNS_County.type.objects.collection)
         .enter() //create elements
 		.append("g") //give each province its own g element 
 		.attr("class", "county")
