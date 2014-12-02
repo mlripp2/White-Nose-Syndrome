@@ -52,7 +52,7 @@ var projection = d3.geo.albers()
 		
 	   	
 	   	var countries = map.append("path") 
-	       	.datum(topojson.feature(NorthAmerica, NorthAmerica.objects.countries))
+	       	.datum(topojson.feature(NorthAmerica, NorthAmerica.objects.collection))
 	       	.attr ("class", "countries")
 	       	.attr("d", path);
 
