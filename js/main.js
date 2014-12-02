@@ -14,11 +14,12 @@ function setMap(){
 	var height = 300;
 
 	var map = d3.select("body")
-		.attr("width",width)
-		.attr("height",height)
+		.append("svg")
+		.attr("width", width)
+		.attr("height", height)
 		.attr("class", "map");
 
-var projection = d3.geo.albers()
+	var projection = d3.geo.albers()
 		.center([-8, 46.2])
 		.rotate([-10, 0])
 		.parallels([43, 62])
@@ -27,22 +28,23 @@ var projection = d3.geo.albers()
 
 	var path = d3.geo.path()
 		.projection(projection);
-			var graticule = d3.geo.graticule()
-		.step([10, 10]); //place graticule lines every 10 degrees of longitude and latitude
 	
-	//create graticule background
-	var gratBackground = map.append("path")
-		.datum(graticule.outline) //bind graticule background
-		.attr("class", "gratBackground") //assign class for styling
-		.attr("d", path) //project graticule
+	// var graticule = d3.geo.graticule()
+	// 	.step([10, 10]); //place graticule lines every 10 degrees of longitude and latitude
 	
-	//create graticule lines	
-	var gratLines = map.selectAll(".gratLines") //select graticule elements that will be created
-		.data(graticule.lines) //bind graticule lines to each element to be created
-	  	.enter() //create an element for each datum
-		.append("path") //append each element to the svg as a path element
-		.attr("class", "gratLines") //assign class for styling
-		.attr("d", path); 
+	// //create graticule background
+	// var gratBackground = map.append("path")
+	// 	.datum(graticule.outline) //bind graticule background
+	// 	.attr("class", "gratBackground") //assign class for styling
+	// 	.attr("d", path) //project graticule
+	
+	// //create graticule lines	
+	// var gratLines = map.selectAll(".gratLines") //select graticule elements that will be created
+	// 	.data(graticule.lines) //bind graticule lines to each element to be created
+	//   	.enter() //create an element for each datum
+	// 	.append("path") //append each element to the svg as a path element
+	// 	.attr("class", "gratLines") //assign class for styling
+	// 	.attr("d", path); 
 
 	queue()
 		.defer(d3.json, "data/WNS_County.topojson")
@@ -51,11 +53,12 @@ var projection = d3.geo.albers()
 
 	function callback(error, WNS_County, NorthAmerica){
 
-		console.log(NorthAmerica.objects.collection);
+		console.log(NorthAmerica.objects.collection.geometries);
 		
+		console.log(WNS_County.objects.collection.geometries);
 	   	
 	   	var countries = map.append("path") 
-	       	.datum(topojson.feature(NorthAmerica, NorthAmerica.objects.collection))
+	       	.data(topojson.feature(NorthAmerica, NorthAmerica.objects.collection.geometries))
 	       	.attr ("class", "countries")
 	       	.attr("d", path);
 
@@ -68,7 +71,7 @@ var projection = d3.geo.albers()
 			.attr("class",function(d){return d.properties})
 			.attr("d",path);
 	};
-}
+};
 
 	
 
