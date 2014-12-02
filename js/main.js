@@ -1,5 +1,8 @@
 window.onload =initialize();
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
 function initialize(){
 	setMap();
 };
