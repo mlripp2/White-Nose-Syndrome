@@ -1,3 +1,14 @@
+body
+{
+	margin:100;
+	padding:0;
+	text-align:center;	
+	background-color:#fff;
+	font-family:Georgia, "Times New Roman", Times, serif;
+	color:#545454;
+	font-size:13pt;
+}
+
 #map-container{
 	width: 500px;
 	margin-top: 20px;
