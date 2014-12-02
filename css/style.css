@@ -8,6 +8,15 @@ body
 	color:#545454;
 	font-size:13pt;
 }
+#cave
+{
+	position: fixed;
+	z-index: -1;
+	top:0;
+	left:0;
+	min-width: 100%
+	min-height: 100%;
+}
 
 #map-container{
 	width: 500px;
@@ -17,4 +26,7 @@ body
 	float: right;
 	clear:both;
 	color:#3B3B3B;
+}
+h1.title{
+	z:index: 1;
 }
