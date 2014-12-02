@@ -9,15 +9,48 @@
 		<div id="header">
 	 <h1 class="title"><span style="color:#3B3B3B">The Spread of White Nose Syndrome</span></h1>
 	 <div id="map-container"></div>
-
+	 <div id= "sequence"></div>
+	 <div id= "karst"></div>
+	 <div id= "timeline"></div>
 	</div>
-		<script src="//code.jquery.com/jquery-1.10.2.js"></script>
-		<script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
-		<script src="lib/d3.v3.js"></script>
-		<script src="lib/topojson.v1.min.js"></script>
-		<script src="lib/queue.js"></script>
-		<script src="http://d3js.org/d3.geo.projection.v0.min.js"></script>
-		<!--link to main JavaScript file-->
+
+		<!--Libraries-->
 		<script src="js/main.js"></script>
+		<script src="lib/d3.js"></script>
+        <script src="lib/topojson.v1.min.js"></script>
+        <script src="lib/queue.js"></script>
+
+	<!--Browser Detection for IE-->
+	<script>
+		
+		$('body').ajaxStart(function() {
+			$(this).css({'cursor':'wait'})
+		}).ajaxStop(function() {
+			$(this).css({'cursor':'auto'})
+		});
+		
+		var isIE;
+		(function ($) {
+			"use strict";
+			// Detecting IE
+			var browser;
+			var oldIE;
+			if ($('html').is('.ie6, .ie7, .ie8')) {
+				isIE = true; 
+				alert("This site will only function in Internet Explorer Version 9 and above. "+
+				"To view, please update your version of Internet Explorer. This site is best viewed in Chrome or Firefox.");
+			} else if ($('html').is('.ie9')){
+				isIE = true;
+			} else {
+				isIE = false;
+			}
+			}(jQuery));
+		</script>
+
+		<!--Main Scripts -->
+		<script src="js/main.js"></script>
+
+	
+
 	</body>
 </html>
