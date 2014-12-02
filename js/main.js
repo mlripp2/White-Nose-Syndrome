@@ -48,7 +48,7 @@ var projection = d3.geo.albers()
 
 	function callback(error, WNS_County, NorthAmerica){
 
-		console.log(NorthAmerica.objects.countries);
+		console.log(NorthAmerica.objects.collection);
 		
 	   	
 	   	var countries = map.append("path") 
