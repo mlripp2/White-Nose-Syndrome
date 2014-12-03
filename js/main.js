@@ -15,7 +15,7 @@ function setMap(){
 		.attr("class", "map");
 
 	var projection = d3.geo.albers()
-		.scale(600)
+		.scale(500)
 		.translate([width / 2, height / 2]);
 
 	var path = d3.geo.path()
