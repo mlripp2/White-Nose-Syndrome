@@ -15,6 +15,9 @@ function setMap(){
 		.attr("class", "map");
 
 	var projection = d3.geo.albers()
+		.center([0, 41])
+		.rotate([95, 0])
+		.parallels([35, 45])
 		.scale(500)
 		.translate([width / 2, height / 2]);
 
