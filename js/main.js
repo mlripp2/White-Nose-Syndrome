@@ -1,29 +1,21 @@
 window.onload =initialize();
-<<<<<<< Updated upstream
 
-=======
->>>>>>> Stashed changes
 function initialize(){
 	setMap();
 };
-
 
 function setMap(){
 
 	var width = 600;
 	var height = 300;
 
-	var map = d3.select("body")
-		.append("svg")
+	var map = d3.select("body").append("svg")
 		.attr("width", width)
 		.attr("height", height)
 		.attr("class", "map");
 
 	var projection = d3.geo.albers()
-		.center([-8, 46.2])
-		.rotate([-10, 0])
-		.parallels([43, 62])
-		.scale(2900)
+		.scale(600)
 		.translate([width / 2, height / 2]);
 
 	var path = d3.geo.path()
@@ -58,12 +50,12 @@ function setMap(){
 		console.log(WNS_County.objects.collection.geometries);
 	   	
 	   	var countries = map.append("path") 
-	       	.data(topojson.feature(NorthAmerica, NorthAmerica.objects.collection.geometries))
+	       	.datum(topojson.feature(NorthAmerica, NorthAmerica.objects.collection))
 	       	.attr ("class", "countries")
 	       	.attr("d", path);
 
 	    var county = map.selectAll(".county") //create SVG path element
-	        .data(topojson.feature(WNS_County, WNS_County.objects.collection))
+	        .data(topojson.feature(WNS_County, WNS_County.objects.collection).features)
 	        .enter() //create elements
 			.append("g") //give each province its own g element 
 			.attr("class", "county")
