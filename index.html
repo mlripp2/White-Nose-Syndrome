@@ -6,7 +6,18 @@
 	<title> White Nose Syndrome</title> 
 		<link rel="stylesheet" href="css/style.css" />
 		<link rel="stylesheet" href="lib/jquery-ui-1.11.1.custom/jquery-ui.css"/>
-    </head>
+		<link rel="stylesheet" href="jquery-ui-1.11.2.custom/jquery-ui.min.css">
+		<script src="jquery-ui-1.11.2.custom/external/jquery/jquery.js"></script>
+		<script src="jquery-ui-1.11.2.custom/jquery-ui.min.js"></script>
+		 <script>
+  			$(function() {
+   	 		$( "#tabs" ).tabs({
+      			 collapsible: true
+      				});
+   	 			});
+ 		 </script>
+</head>
+
 
     <body> 
     <span id ="play">Play</span>
@@ -25,7 +36,73 @@
 			 <h1 class="title"><span style="color:#fdfdfd">The Spread of White Nose Syndrome</span></h1>
 
 		</div>
-        	
+        
+
+    <div id="tabs">
+  		<ul>
+    		<li><a href="#tabs-1">About White Nose Syndrome</a></li>
+    		<li><a href="#tabs-2">Affected Bat Species</a></li>
+    		<li><a href="#tabs-3">How You Can Help</a></li>
+    		<li><a href="#tabs-4">Resources</a></li>
+    		
+  		</ul>
+
+  		<div id="tabs-1">
+  			<p><strong>Click this tab again to close the content pane.</strong></p>
+  			<p>White-nose syndrome (WNS) is a disease causing the widespread death of bats in North America. Since it’s discovery in New York in 2006, WNS has spread to over 25 US states and reduced northeastern bat populations by approximately 80%. 
+ 
+			WNS is caused by the fungus Pseudogymnoascus destructans that flourishes in cold caves and lives on bats’ noses, ears, and wings. During the months of hibernation, the fungus disturbs the bats causing them to burn up their energy stores and ultimately starve before winter’s end. 
+ 
+			Another characteristic of WNS affected bats is abnormal behavior. If you see a bat flying during winter months, during the day, or roosting in daylight, report it to your local state wildlife agency.</p>
+
+		</div>
+
+		<div id="tabs-2">
+			<p><strong>Little Brown Bat<i> (Myotis lucifugus)</i></strong></p>
+			<div id="batpic"><img src="img/LittleBrown.jpg"></div>
+			<div id="battext"><p>The little brown bat is one of the most common North American bats. They make their home in attics, roofs, trees, caves, and other areas all over Canada, the United States, and Northern Mexico. Little Brown Bats feed on insects.</p></div>
+
+
+			<p><strong>Big Brown Bat<i> (Eptesicus fuscus)</i></strong></p>
+			<div id="batpic"><img src="img/BigBrown.jpg"></div>
+			<div id="battext"><p>The big brown bat is a common bat with a range from Brazil to Canada. They can tolerate a wide range of conditions, and often live in man-made structures. Big Brown Bats can survive up to age 19 in the wild, but most die during their first few 
+			years. They eat a diet of insects.</p></div>
+
+			<p><strong>Gray Bat<i> (Myotis grisescens)</i></strong></p>
+			<div id="batpic"><img src="img/Gray.jpg"></div>
+			<div id="battext"><p>The gray bat is an endangered species that lives in limestone karst regions of the southeastern United States. Karst is a term referring to rock being dissolved by acidic rainwater, resulting in caves and openings. Gray bats prefer this type of topography and are rarely found living in places besides caves. The majority of 
+			known gray bats live in fewer than ten caves, and this contributes to the 
+			vulnerability of the species to human disturbance and WNS.</p></div>
+
+			<p><strong>Eastern Small Footed Bat<i> (Myotis leibii)</i></strong></p>
+			<div id="batpic"><img src="img/EasternSmallFooted.jpg"></div>
+			<div id="battext"><p>The eastern small-footed bat lives in the northeastern United States and is a very elusive bat. Seeing an eastern small-footed bat is unlikely due to their occupation of abandoned mines and caves, and their small population concentrations. Despite the rare sightings of this bat, there is no evidence to suggest that the species is declining towards endangerment. The eastern small-footed bat only grows up to about 8 centimeters and is one of the smallest North American bats.</p></div>
+
+			<p><strong>Indiana Bat<i> (Myotis soldalis)</i></strong></p>
+			<div id="batpic"><img src="img/Indiana.jpg"></div>
+			<div id="battext"><p> Listed as an endangered species in 1967, the Indiana bat population has been in decline ever since. Indiana bats, which inhabit the eastern United States, hibernate in caves and abandoned mines and roost in wooded areas during the warmer months. Human disturbance is the leading cause of Indiana bat endangerment.</p></div>
+
+			<p><strong>Northern Long-Eared Bat<i> (Myotis septentrionalis)</i></strong></p>
+			<div id="batpic"><img src="img/NorthernLongEared.jpg"></div>
+			<div id="battext"><p>Northern long-eared bats live in the eastern United States and Canada with a range extending up towards western Canada. In 2013, the US Fish and Wildlife Service published a proposal to recognize the northern long-eared bat as an endangered species. Northern long-eared bats spend the winter in caves, and the summer 
+			roosting in trees. White-nose syndrome poses the largest threat to the species, and 
+			has caused up to 99% mortality in the northeastern United States.</p></div>
+
+			<p><strong>Tricolored Bat<i> (Perimyotis subflavus)</i></strong></p>
+			<div id="batpic"><img src="img/Tricolored.jpg"></div>
+			<div id="battext"><p>Also known as the eastern pipistrelle, the tricolored bat ranges from eastern Mexico, through the eastern United States, and into southeastern Canada. They typically hibernate individually or in small groups in caves. Due to their small size (up to 9 cm) and erratic flight, tricolored bats can be confused for moths.</p></div>
+
+		</div>
+
+		<div id="tabs-3">
+			<p>How to help ... ... ...</p>
+		</div>
+
+		<div id="tabs-4">
+			<p>Resources ... ... ...</p>
+		</div>
+
+  	</div>
 
     </body>
 

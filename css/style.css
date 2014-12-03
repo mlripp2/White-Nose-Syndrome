@@ -8,6 +8,9 @@ body{
 	font-size:13pt;
 }
 
+.map{
+	float: right;
+}
 #cave
 {
 	position: fixed;
@@ -36,4 +39,27 @@ h1.title{
 
 .selector{ 
     width: 100px;
+}
+
+#batpic{
+	float: left;
+	width: 200px;
+	height: 200px;
+	margin-right: 15px;
+	margin-bottom: 15px;
+	margin-top: 15px;
+}
+
+#batpic img{
+	width: 100%;
+	height: auto;
+}
+
+#battext {
+	height: 200px;
+}
+
+#tabs {
+	width: 500px;
+	height: auto;
 }
