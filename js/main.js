@@ -1,5 +1,7 @@
 window.onload =initialize();
+var year = 2006
 
+clicked = false;
 function initialize(){
 	setMap();
 };
@@ -40,6 +42,7 @@ function setMap(){
 	// 	.append("path") //append each element to the svg as a path element
 	// 	.attr("class", "gratLines") //assign class for styling
 	// 	.attr("d", path); 
+	
 
 	queue()
 		.defer(d3.json, "data/WNS_County.topojson")
@@ -48,9 +51,9 @@ function setMap(){
 
 	function callback(error, WNS_County, NorthAmerica){
 
-		console.log(NorthAmerica.objects.collection.geometries);
+		console.log(NorthAmerica);
 		
-		console.log(WNS_County.objects.collection.geometries);
+		console.log(WNS_County);
 	   	
 	   	var countries = map.append("path") 
 	       	.datum(topojson.feature(NorthAmerica, NorthAmerica.objects.collection))
@@ -60,14 +63,70 @@ function setMap(){
 	    var county = map.selectAll(".county") //create SVG path element
 	        .data(topojson.feature(WNS_County, WNS_County.objects.collection).features)
 	        .enter() //create elements
-			.append("g") //give each province its own g element 
+			.append("path") //give each province its own g element 
 			.attr("class", "county")
-			.append("path")
-			.attr("class",function(d){return d.properties})
-			.attr("d",path);
+			.attr("id",function(d){
+				return "y"+ d.properties.WNS_Year
+			})
+			
+			.attr("d",path)
+			.style("display",function(d){
+				if (d.properties.WNS_Year != year){
+					return "none"
+				}
+				else{
+					return "inline"
+				}
+			});
+		
 	};
+	sequence()
 };
+function sequence(){
+	
+		$( ".selector" ).slider( { min:2006,max: 2013,value: 2006,});
+			$( ".selector" ).on( "slidechange", function( event, ui ) {
+				year = ui.value
+				UpdateMap();
+				})
+	d3.selectAll("#play")
+		.on("click",function(){
+			if(clicked){			
+			clicked = false;
+			 clearInterval(tick)
+			 d3.select("#play").html("Play")
+			}
+			else{
+				console.log("hey")
+				tick = setInterval(function () {
+		
+					if(year == 2013){
+						year = 2006
+						UpdateMap()
+					}
+					else{
+					year+=1
+					UpdateMap()
+						
+					}
+				}, 3000);
+				clicked = true;
+				d3.select("#play").html("Pause")
 
+				}
+				
+			
+		}) 
+}
+function UpdateMap(){
+	console.log("hey")
+d3.selectAll('.county')
+	.style("display","none");
+d3.selectAll('#y'+year)
+	.style("display","inline");
+
+d3.select("#clock").html(year)
+}
 	
 
 	

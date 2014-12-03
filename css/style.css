@@ -1,11 +1,10 @@
-body
-{
+body{
 	margin:100;
 	padding:0;
 	text-align:center;	
 	background-color:#fff;
 	font-family:Georgia, "Times New Roman", Times, serif;
-	color:#545454;
+	
 	font-size:13pt;
 }
 
@@ -30,8 +29,11 @@ h1.title{
 }
 
 .county{
-	stroke-width: 5px;
-	fill: none;
 	stroke: #000;
-	stroke-width: 0.5px;
+	fill:red;
+	stroke-width: 2px;
+}
+
+.selector{ 
+    width: 100px;
 }
