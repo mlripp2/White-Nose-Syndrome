@@ -47,10 +47,6 @@ function setMap(){
 		.await(callback);
 
 	function callback(error, WNS_County, NorthAmerica){
-
-		console.log(NorthAmerica.objects.collection.geometries);
-		
-		console.log(WNS_County.objects.collection.geometries);
 	   	
 	   	var countries = map.append("path") 
 	       	.datum(topojson.feature(NorthAmerica, NorthAmerica.objects.collection))

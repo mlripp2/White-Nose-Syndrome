@@ -9,6 +9,9 @@ body
 	font-size:13pt;
 }
 
+#map{
+	left: 500px;
+}
 #cave
 {
 	position: fixed;
