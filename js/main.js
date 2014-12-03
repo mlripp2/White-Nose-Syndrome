@@ -6,8 +6,8 @@ function initialize(){
 
 function setMap(){
 
-	var width = 600;
-	var height = 300;
+	var width = 700;
+	var height = 400;
 
 	var map = d3.select("body").append("svg")
 		.attr("width", width)
@@ -15,10 +15,10 @@ function setMap(){
 		.attr("class", "map");
 
 	var projection = d3.geo.albers()
-		.center([0, 41])
+		.center([0, 40])
 		.rotate([95, 0])
 		.parallels([35, 45])
-		.scale(500)
+		.scale(800)
 		.translate([width / 2, height / 2]);
 
 	var path = d3.geo.path()
