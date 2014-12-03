@@ -8,6 +8,7 @@ body
 	color:#545454;
 	font-size:13pt;
 }
+
 #cave
 {
 	position: fixed;
@@ -20,4 +21,17 @@ body
 
 h1.title{
 	z:index: 1;
+}
+
+.countries{
+	fill: white;
+	stroke: #989898 ;
+	stroke-width: 2px;
+}
+
+.county{
+	stroke-width: 5px;
+	fill: none;
+	stroke: #000;
+	stroke-width: 0.5px;
 }
