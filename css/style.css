@@ -43,23 +43,23 @@ h1.title{
 }
 
 #batpic{
-	float: top;
 	width: 200px;
-	height: 200px;
-	margin-right: 15px;
-	margin-bottom: 15px;
-	margin-top: 15px;
+	display: block;
+    margin-left: auto;
+    margin-right: auto
 }
 
 #batpic img{
-	position: center;
+	
 	width: 100%;
 	height: auto;
+
 }
 
-#battext {
-	height: auto;
+#accordion {
+	font-size: small;
 }
+
 
 #tabs {
 	float: left;
