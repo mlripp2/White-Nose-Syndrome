@@ -61,7 +61,7 @@ h1.title{
 }
 
 #tabs {
-	float: right;
+	float: left;
 	height: auto;
-	width: 300;
+	width: 400px;
 

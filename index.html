@@ -5,17 +5,37 @@
 
 	<title> White Nose Syndrome</title> 
 		<link rel="stylesheet" href="css/style.css" />
-		<link rel="stylesheet" href="lib/jquery-ui-1.11.1.custom/jquery-ui.css"/>
-		<link rel="stylesheet" href="jquery-ui-1.11.2.custom/jquery-ui.min.css">
-		<script src="jquery-ui-1.11.2.custom/external/jquery/jquery.js"></script>
-		<script src="jquery-ui-1.11.2.custom/jquery-ui.min.js"></script>
+		 <link rel="stylesheet" href="jquery-ui-1.11.2.custom/jquery-ui.css">
+		 <link rel="stylesheet" href="jquery-ui-1.11.2.custom/jquery-ui.min.css">
+  		<script src="jquery-ui-1.11.2.custom/external/jquery/jquery.js"></script>
+  		<script src="jquery-ui-1.11.2.custom/jquery-ui.min.js"></script>
+
+  		<link rel="stylesheet" href="/resources/demos/style.css">
+
+			<style>
+				#accordion-resizer {
+				padding: 10px;
+				width: 400px;
+				height: 500px;
+				}
+			</style>
+
 		 <script>
-  			$(function() {
-   	 		$( "#tabs" ).tabs({
-      			 collapsible: true
-      				});
-   	 			});
- 		 </script>
+			  $(function() {
+			    $( "#accordion" ).accordion({
+			      heightStyle: "fill"
+			    });
+			  });
+			  $(function() {
+			    $( "#accordion-resizer" ).resizable({
+			      minHeight: 140,
+			      minWidth: 200,
+			      resize: function() {
+			        $( "#accordion" ).accordion( "refresh" );
+			      }
+			    });
+			  });
+  		</script>
 </head>
 
 
@@ -38,27 +58,19 @@
 		</div>
         
 
-    <div id="tabs">
-  		<ul>
-    		<li><a href="#tabs-1">About White Nose Syndrome</a></li>
-    		<li><a href="#tabs-2">Affected Bat Species</a></li>
-    		<li><a href="#tabs-3">How You Can Help</a></li>
-    		<li><a href="#tabs-4">Resources</a></li>
-    		
-  		</ul>
-
-  		<div id="tabs-1">
-  			<p><strong>Click this tab again to close the content pane.</strong></p>
-  			<p>White-nose syndrome (WNS) is a disease causing the widespread death of bats in North America. Since it’s discovery in New York in 2006, WNS has spread to over 25 US states and reduced northeastern bat populations by approximately 80%. 
+   <div id="accordion-resizer" class="ui-widget-content">
+  <div id="accordion">
+    <h3>About White Nose Syndrome</h3>
+    <div>
+      <p>White-nose syndrome (WNS) is a disease causing the widespread death of bats in North America. Since it’s discovery in New York in 2006, WNS has spread to over 25 US states and reduced northeastern bat populations by approximately 80%. 
  
 			WNS is caused by the fungus Pseudogymnoascus destructans that flourishes in cold caves and lives on bats’ noses, ears, and wings. During the months of hibernation, the fungus disturbs the bats causing them to burn up their energy stores and ultimately starve before winter’s end. 
  
 			Another characteristic of WNS affected bats is abnormal behavior. If you see a bat flying during winter months, during the day, or roosting in daylight, report it to your local state wildlife agency.</p>
-
-		</div>
-
-		<div id="tabs-2">
-			<p><strong>Little Brown Bat<i> (Myotis lucifugus)</i></strong></p>
+    </div>
+    <h3>Affected Bat Species</h3>
+    <div>
+     <p><strong>Little Brown Bat<i> (Myotis lucifugus)</i></strong></p>
 			<div id="batpic"><img src="img/LittleBrown.jpg"></div>
 			<div id="battext"><p>The little brown bat is one of the most common North American bats. They make their home in attics, roofs, trees, caves, and other areas all over Canada, the United States, and Northern Mexico. Little Brown Bats feed on insects.</p></div>
 
@@ -94,15 +106,22 @@
 
 		</div>
 
-		<div id="tabs-3">
-			<p>How to help ... ... ...</p>
-		</div>
+    <h3>How You Can Help</h3>
+    <div>
+      <p>There are a number of ways that you can help prevent the spread of white nose syndrome!</p>
+      <ul>
+        <li>Report odd bat behavior such as daytime flying to your local wildlife agency</li>
+        <li>Do not enter caves or disturb bat habitat</li>
+        <li>Protect bat habitat near your home, or build bat houses</li>
+      </ul>
+    </div>
+    <h3>Resources</h3>
+    <div>
+      <p>www.whitenosesyndrome.org </p>
+    </div>
+  </div>
+</div>
 
-		<div id="tabs-4">
-			<p>Resources ... ... ...</p>
-		</div>
-
-  	</div>
 
     </body>
 
