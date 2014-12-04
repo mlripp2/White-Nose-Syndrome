@@ -10,6 +10,7 @@ body{
 
 .map{
 	float: right;
+	margin-left: 200;
 }
 #cave
 {
@@ -32,7 +33,7 @@ h1.title{
 }
 
 .county{
-	stroke: #000;
+	stroke: red;
 	fill:red;
 	stroke-width: 2px;
 }
@@ -60,6 +61,7 @@ h1.title{
 }
 
 #tabs {
-	width: 500px;
+	float: right;
 	height: auto;
-}
+	width: 300;
+
