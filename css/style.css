@@ -49,27 +49,28 @@ h1.title{
 }
 
 #batpic{
-	float: left;
 	width: 200px;
-	height: 200px;
-	margin-right: 15px;
-	margin-bottom: 15px;
-	margin-top: 15px;
+	display: block;
+    margin-left: auto;
+    margin-right: auto
 }
 
 #batpic img{
+	
 	width: 100%;
 	height: auto;
+
 }
 
-#battext {
-	height: 200px;
+#accordion {
+	font-size: small;
 }
+
 
 #tabs {
-	float: right;
+	float: left;
 	height: auto;
-	width: 300;
+	width: 400px;
 
 #clock{
     position:absolute;
