@@ -73,6 +73,8 @@ function setMap(){
 };
 function sequence(){
 	
+
+
 		$( ".selector" ).slider( { min:2006,max: 2013,value: 2006,});
 			$( ".selector" ).on( "slidechange", function( event, ui ) {
 				previousyear=year
@@ -85,7 +87,7 @@ function sequence(){
 			if(clicked){			
 			clicked = false;
 			 clearInterval(tick)
-			 d3.select("#play").html("Play")
+			 d3.select("#play img").attr("src", "img/play.png")
 			}
 			else{
 				tick = setInterval(function () {
@@ -101,7 +103,7 @@ function sequence(){
 					}
 				}, 3000);
 				clicked = true;
-				d3.select("#play").html("Pause")
+				d3.select("#play img").attr("src", "img/pause.png")
 
 				}
 				
