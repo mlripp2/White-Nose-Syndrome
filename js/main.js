@@ -1,5 +1,6 @@
 window.onload =initialize();
 var year = 2006
+var previousyear=year-1
 
 clicked = false;
 function initialize(){
@@ -47,11 +48,10 @@ function setMap(){
 	        .data(topojson.feature(WNS_County, WNS_County.objects.collection).features)
 	        .enter() //create elements
 			.append("path") //give each province its own g element 
-			.attr("class", "county")
-			.attr("id",function(d){
-				return "y"+ d.properties.WNS_Year
-			})
 			
+			.attr("class",function(d){
+				return "county y"+ d.properties.WNS_Year
+			})
 			.attr("d",path)
 			.style("display",function(d){
 				if (d.properties.WNS_Year != year){
@@ -60,16 +60,24 @@ function setMap(){
 				else{
 					return "inline"
 				}
+			d3.select	
+			.style("fill", function(d){
+				if(d.properties.WNS_STATUS != 'Confirmed'){
+					return d.color
+				}
+			
 			});
 		
-	};
+	});
 	sequence()
 };
 function sequence(){
 	
 		$( ".selector" ).slider( { min:2006,max: 2013,value: 2006,});
 			$( ".selector" ).on( "slidechange", function( event, ui ) {
+				previousyear=year
 				year = ui.value
+
 				UpdateMap();
 				})
 	d3.selectAll("#play")
@@ -80,7 +88,6 @@ function sequence(){
 			 d3.select("#play").html("Play")
 			}
 			else{
-				console.log("hey")
 				tick = setInterval(function () {
 		
 					if(year == 2013){
@@ -88,7 +95,7 @@ function sequence(){
 						UpdateMap()
 					}
 					else{
-					year+=1
+					year+=1 //how to include previous years 
 					UpdateMap()
 						
 					}
@@ -101,15 +108,30 @@ function sequence(){
 			
 		}) 
 }
-function UpdateMap(){
-	console.log("hey")
-d3.selectAll('.county')
-	.style("display","none");
-d3.selectAll('#y'+year)
-	.style("display","inline");
+function UpdateMap(){ //if else statement that..anything greater than 0, get assigned year 
+	if (year < 0)	{
+	d3.selectAll('.y' + previousyear)
+		.style("display","none")}
+
+	else{
+	d3.selectAll('.y'+year)
+		.style("display","inline")};
+
 
 d3.select("#clock").html(year)
+
+console.log(year)
 }
 	
+
+function highlight(data){
+	var props = data.properties ? data.properties: data;
+
+	d3.selectAll('.WNS'+props.name)
+		.style("fill", '#000')
+	d3.selectAll('.WNS'+props.name)
+		.style("fill", '#000')
+	}
+};	
 
 	
