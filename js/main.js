@@ -73,8 +73,6 @@ function setMap(){
 };
 function sequence(){
 	
-
-
 		$( ".selector" ).slider( { min:2006,max: 2013,value: 2006,});
 			$( ".selector" ).on( "slidechange", function( event, ui ) {
 				previousyear=year
