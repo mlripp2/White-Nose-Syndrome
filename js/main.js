@@ -52,23 +52,36 @@ function setMap(){
 			.attr("class",function(d){
 				return "county y"+ d.properties.WNS_Year
 			})
+
+			.attr("id",function(d){
+				return "C"+ d.properties.OBJECTID
+			})
 			.attr("d",path)
 			.style("display",function(d){
 				if (d.properties.WNS_Year != year){
 					return "none"
 				}
 				else{
+					console.log(d)
 					return "inline"
-				}
-			d3.select	
+
+				}})
 			.style("fill", function(d){
 				if(d.properties.WNS_STATUS != 'Confirmed'){
-					return d.color
+					return "#fec44f"
+
+				}
+				else{
+					console.log("hey")
+					return "#d95f0e"
 				}
 			
-			});
+			})
+		.on("mouseover", highlight)
+		.on("mouseout", dehighlight)
+		.on("mousemove", moveLabel);
 		
-	});
+
 	sequence()
 };
 function sequence(){
@@ -108,30 +121,87 @@ function sequence(){
 			
 		}) 
 }
-function UpdateMap(){ //if else statement that..anything greater than 0, get assigned year 
-	if (year < 0)	{
-	d3.selectAll('.y' + previousyear)
-		.style("display","none")}
+function UpdateMap(){
+ //if else statement that..anything greater than 0, get assigned year 
+d3.selectAll('.county')
+		.style("display","none");
 
-	else{
-	d3.selectAll('.y'+year)
-		.style("display","inline")};
-
+ for(i = 2006; i <= year;i++){ 	
+ 	console.log(i)
+	d3.selectAll('.y'+i)
+		.style("display","inline");
 
 d3.select("#clock").html(year)
 
-console.log(year)
+console.log("current year:"+year )
+
 }
-	
+}
 
+
+};
 function highlight(data){
+	
 	var props = data.properties ? data.properties: data;
+	console.log(d3.selectAll('#C'+props.OBJECTID))
+	d3.selectAll('#C'+props.OBJECTID)
+		.style("stroke-color", '#000')
+		.style("stroke-width", '3px');
+		// }
+	var labelAttribute = props.NAME;
+	var labelName = "<h1>"+props.num_specie+" Species Effected in "+props.NAME+" County</h1>"
+	var unorder = "<ul>"
+		var split = props.species_pr.split(",");
+		for (j in split){
+			if (split[j].length > 3){
+			var item = "<li>"+split[j]+"</li>";
+			unorder += item
+			}
+		
 
-	d3.selectAll('.WNS'+props.name)
-		.style("fill", '#000')
-	d3.selectAll('.WNS'+props.name)
-		.style("fill", '#000')
 	}
+ 
+	unorder += "</ul>"
+	console.log(unorder)
+	 //the name of the country is not displaying in the popup on the bar chart  
+	//console.log(props.NAME_1); //html string for name to go in child div
+	//create info label div
+	var infolabel = d3.select("body")
+		.append("div") //create the label div
+		.attr("class", "infolabel")
+		.attr("id", '#C'+props.OBJECTID) //for styling label
+		.html(labelName) //add text
+		.append("div") //add child div for feature name
+		.attr("class", "labelName") //for styling name
+		.html(unorder); //add feature name to label
+	}
+function dehighlight(data){
+	var props = data.properties ? data.properties: data;
+	d3.selectAll('#C'+props.OBJECTID)
+		.style("stroke-width", '1px')
+		.style("stroke-color", "black");
+
+	//bar.style("fill", fillcolor) //reset enumeration unit to orginal color
+	d3.select(".infolabel").remove(); //remove info label
+
+};
+
+function moveLabel() {
+
+	if (d3.event.clientX < window.innerWidth + 245){
+		var x = d3.event.clientX; //horizontal label coordinate based mouse position stored in d3.event
+	} else {
+		var x = d3.event.clientX; //horizontal label coordinate based mouse position stored in d3.event
+	};
+	if (d3.event.clientY < window.innerHeight + 100){
+		var y = d3.event.clientY-400; //vertical label coordinate
+	} else {
+		var y = d3.event.clientY-400; //vertical label coordinate
+	};
+	//console.log(d3.select(".infolabel"))
+	d3.select(".infolabel") //select the label div for moving
+		.style("margin-left", x+"px") //reposition label horizontal
+		.style("margin-top", y+"px"); //reposition label vertical
 };	
 
 /*test change for upload*/
